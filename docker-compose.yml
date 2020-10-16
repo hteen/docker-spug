@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+    docker:
+        image:            docker:dind
+        privileged:       true
+        restart:          always
+        environment:
+            - DOCKER_TLS_CERTDIR=
+        volumes:
+            - ./data/repos/:/spug/spug_api/repos/
+    spug:
+        # build: ./
+        image:            hteen/docker-spug
+        privileged:       false
+        restart:          always
+        depends_on:
+            - docker
+        ports:
+            - "8080:80"
+        volumes:
+            - ./data/db/:/spug/spug_api/db/
+            - ./data/repos/:/spug/spug_api/repos/
+            - ./data/logs/:/spug/spug_api/logs/
