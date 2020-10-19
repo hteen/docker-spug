@@ -10,7 +10,10 @@ services:
         volumes:
             - ./data/repos/:/spug/spug_api/repos/
     spug:
+        # 启动时构建
         # build: ./
+        # 国内镜像镜像
+        # image:            registry.cn-beijing.aliyuncs.com/hteen/docker-spug
         image:            hteen/docker-spug
         privileged:       false
         restart:          always
