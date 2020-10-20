@@ -8,6 +8,8 @@
 ## 启动
 
 ```shel
+git clone https://github.com/hteen/docker-spug.git
+cd docker-spug
 docker-compose up -d
 ```
 
